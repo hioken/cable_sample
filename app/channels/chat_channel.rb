@@ -13,12 +13,13 @@ class ChatChannel < ApplicationCable::Channel
 
   def receive(data) # パブリッシャからメッセージを受信
     # クライアントから送られたメッセージを受け取る
+    puts params[:chat_id]
+    puts '&'*1000
+    puts current_user
     message = Message.create!(content: data['message'], user: current_user)
 
     # メッセージを送信
-    ActionCable.server.broadcast "chat_1", message: render_message(message)
-    puts params[:chat_id]
-    puts '&'*1000
+    ActionCable.server.broadcast("chat_1", {message: render_message(message)})
   end
 
   private
