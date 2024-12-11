@@ -1,0 +1,31 @@
+<h2>ログイン</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email, value: 'user1@example.com', autofocus: true %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, value: 'password' %><br>
+
+  <%= f.submit "ログイン" %>
+<% end %>
+
+<h3>その他のユーザー情報</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user2@example.com</td>
+      <td>password</td>
+    </tr>
+    <tr>
+      <td>user3@example.com</td>
+      <td>password</td>
+    </tr>
+  </tbody>
+</table>
